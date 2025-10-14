@@ -12,9 +12,11 @@ function AddTask({ onAddTaskClick }) {
         <input type="text" placeholder="Digite o titulo da tarefa" value={title} onChange={(event) => setTitle(event.target.value)} className={`bg-slate-600 text-white p-2 rounded-md w-full text-left`} />
         <input type="text" placeholder="Digite a descrição da tarefa" value={description} onChange={(event) => setDescription(event.target.value)} className={`bg-slate-600 text-white p-2 rounded-md w-full text-left mb-5`} />
 
-        <button onClick={() => {onAddTaskClick(title, description),
-            setTitle(""),
-            setDescription("")}} className="bg-amber-500 text-white hover:bg-amber-600 mx-auto p-2 rounded-md">Adicionar tarefa</button>
+        <button onClick={() => {
+            if (!title.trim() || !description.trim()) { return alert("Preencha todos os campos") } onAddTaskClick(title, description),
+                setTitle(""),
+                setDescription("")
+        }} className="bg-amber-500 text-white hover:bg-amber-600 mx-auto p-2 rounded-md">Adicionar tarefa</button>
 
     </div >
 }
